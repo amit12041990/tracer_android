@@ -5,10 +5,10 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-nativ
 import {Picker } from '@react-native-picker/picker'
 import axios from 'axios';
 import { useNavigation } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { API_URLS } from './api';
-const Stack = createNativeStackNavigator();
+
 
 const LoginScreen = () => {
     const navigation = useNavigation();
