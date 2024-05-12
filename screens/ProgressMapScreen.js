@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 import { selectWordCloudData } from '../redux/wordCloudSlice';
 
 import { useRoute } from '@react-navigation/native';
-import { VictoryBar, VictoryChart, VictoryTheme,VictoryPie } from "victory-native";
+
 const ProgressMapScreen = () => {
   
     const reduxStoreData = useSelector(selectWordCloudData);

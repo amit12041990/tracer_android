@@ -1,6 +1,6 @@
 export function calculateAverages(dataArray) {
     // Initialize variables to store the sum of values
-    console.log(dataArray)
+
     let totalGrammarMistakeCount = 0;
     let totalSpellMistakeCount = 0;
     let totalImpression = 0;

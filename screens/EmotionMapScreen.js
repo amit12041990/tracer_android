@@ -28,7 +28,7 @@ import DonutChart from "../Components/sentimentChart/PieChart";
 
 
 import {selectWordCloudData} from '../redux/wordCloudSlice'
-import DataDisplay from "../Components/sentimentChart/DataTable";
+
 import { useRoute } from "@react-navigation/native";
 
 const EmotionMapScreen = () => {

@@ -21,7 +21,7 @@ const LoginScreen = () => {
             const isLogin = await AsyncStorage.getItem('isLoggedIn');
             if (isLogin === 'true') {
                 const userRole = await AsyncStorage.getItem('role');
-                navigation.navigate(userRole === 'admin' ? 'Dashboard' : 'Home');
+                navigation.navigate(userRole === 'admin' ? 'Dashboard' : 'Child');
             }
         };
 
@@ -39,7 +39,7 @@ const LoginScreen = () => {
                 await AsyncStorage.setItem('isLoggedIn', 'true');
                 await AsyncStorage.setItem('userID', response.data.userID);
                 await AsyncStorage.setItem('role', response.data.userType); // Store the user's role
-                navigation.navigate(role === 'admin' ? 'Dashboard' : 'Home');
+                navigation.navigate(role === 'admin' ? 'Dashboard' : 'Child');
                 
                
             }

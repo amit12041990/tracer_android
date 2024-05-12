@@ -80,7 +80,7 @@ const AdminDashboard = () => {
             console.error("Error Fetching status:", error.message);
           }
         } else {
-          navigation.replace("Login");
+          navigation.replace("Home");
         }
       } catch (error) {
         console.error("Error checking login status:", error.message);
@@ -156,7 +156,7 @@ const AdminDashboard = () => {
       await AsyncStorage.removeItem("isLoggedIn");
 
       // Navigate to the login screen
-      navigation.replace("Login");
+      navigation.replace("Home");
     } catch (error) {
       console.error("Error during logout:", error.message);
       
@@ -165,12 +165,18 @@ const AdminDashboard = () => {
 
   if (isUserLoggedIn) {
     return (
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView>
         <LinearGradient colors={["#3498db", "#ffffff"]}>
           <View style={styles.main}>
             {/* Header Section*/}
             <View style={styles.header}>
               <Text style={styles.viewTitle}>Dashboard</Text>
+              <TouchableOpacity
+                onPress={handleLogout}
+                style={styles.logoutButton}
+              >
+                <Text style={styles.logoutText}>logout</Text>
+              </TouchableOpacity>
             </View>
 
             <View
@@ -228,14 +234,7 @@ const AdminDashboard = () => {
               }
             
 
-            <View style={styles.footer}>
-              <TouchableOpacity
-                onPress={handleLogout}
-                style={styles.logoutButton}
-              >
-                <Text style={styles.logoutText}>logout</Text>
-              </TouchableOpacity>
-            </View>
+            
           </View>
         </LinearGradient>
       </SafeAreaView>
@@ -264,20 +263,32 @@ const styles = StyleSheet.create({
     height: windowHeight,
   },
   header: {
-    justifyContent: "center",
-    alignItems: "center",
+    flexDirection: "row", // Arrange items horizontally
+    justifyContent: "space-between", // Space between items
+    alignItems: "center", // Center items vertically
     height: 120,
-
     marginTop: 10,
-    backgroundColor: "transparent", // Make the background transparent to show the gradient
+    backgroundColor: "transparent",
     padding: 10,
     borderRadius: 20,
   },
   viewTitle: {
-    fontSize: 28, // Increase font size for better visibility
-    fontWeight: "bold", // Add bold font weight
-    color: "#ffffff", // Text color as white to contrast with gradient background
-    textTransform: "uppercase", // Uppercase text for a stylish look
+    fontSize: 28,
+    fontWeight: "bold",
+    color: "#ffffff",
+    textTransform: "uppercase",
+  },
+
+  logoutButton: {
+    backgroundColor: "#ffffff",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 10,
+  },
+
+  logoutText: {
+    color: "#3498db",
+    fontWeight: "bold",
   },
 
   dropdownContainer: {
@@ -359,15 +370,7 @@ const styles = StyleSheet.create({
 
     backgroundColor: "#3498db",
   },
-  logoutButton: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  logoutText: {
-    color: "#ffffff",
-    fontWeight: "bold",
-  },
+  
 
   //calender component
   calendarContainer: {

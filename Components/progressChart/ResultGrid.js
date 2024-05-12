@@ -5,7 +5,6 @@ import CircularProgress from 'react-native-circular-progress-indicator';
 const PrgoressCirc = (props)=>{
     const tabledata2=props.data
     //const {value,type}=data
-    console.log(tabledata2)
     return(
         <CircularProgress
   value={tabledata2.value}

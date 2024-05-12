@@ -30,14 +30,14 @@ const AppsScreen = () => {
                 const role = await AsyncStorage.getItem('role');
 
                 if (isLoggedIn === 'true' && role == 'user') {
-                    console.log(role)
+                   
                     setIsUserLoggedIn(true);
                 }
                 else if (isLoggedIn === 'true' && role == 'admin') {
                     navigation.navigate('Dashboard');
                 }
                 else {
-                    navigation.replace('Login');
+                    navigation.replace('Home');
                 }
             } catch (error) {
                 console.error('Error checking login status:', error.message);
@@ -61,7 +61,7 @@ const AppsScreen = () => {
             await AsyncStorage.removeItem('isLoggedIn');
 
             // Navigate to the login screen
-            navigation.replace('Login');
+            navigation.replace('Home');
         } catch (error) {
             console.error('Error during logout:', error.message);
         }
@@ -78,7 +78,7 @@ const AppsScreen = () => {
                 await AsyncStorage.removeItem('isLoggedIn');
 
                 // Navigate to the login screen
-                navigation.replace('Login');
+                navigation.replace('Home');
             } catch (error) {
                 console.error('Error during logout:', error.message);
             }

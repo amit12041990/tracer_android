@@ -1,7 +1,7 @@
 import React, { useState,useRef,useEffect } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Dimensions, StyleSheet, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useRoute } from '@react-navigation/native';
+import { useRoute,useNavigation } from '@react-navigation/native';
 
 import TagSummary from '../Components/wordCloudChart/TagTable'; // Corrected component name
 
@@ -12,7 +12,9 @@ import { selectWordCloudData } from '../redux/wordCloudSlice';
 import { useSelector } from "react-redux";
 import { calculateSum } from '../assets/js/wordcloud_helper';
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
 const InterestMapScreen = () => {
+  const navigation =useNavigation()
     const scrollViewRef = useRef(null);
   const [contentHeight, setContentHeight] = useState(0);
 
@@ -56,20 +58,20 @@ const InterestMapScreen = () => {
         setSelectedTag(tag);
     };
 
-    const handleLogout = () => {};
+
 
     return (
         <LinearGradient colors={['#3498db', '#ffffff']} style={styles.gradient}>
             <SafeAreaView style={styles.container}>
                 {/* Header Section */}
                 <View style={styles.header}>
-                    <Text style={styles.viewTitle}>Interest Map</Text>
-                    <View style={styles.dateContainer}>
-                        <Text>From : {startDate}</Text>
-                        <Text> To : {endDate}</Text>
-                    </View>
+              <Text style={styles.viewTitle}>Interest Map</Text>
+             
+            </View>
+                <View style={styles.dateContainer}>
+                        <Text style={{color:'white'}}>From : {startDate}</Text>
+                        <Text style={{color:'white'}}>  : {endDate}</Text>
                 </View>
-
                 {/* Word Cloud Section */}
                 <TagSummary tagValue={data_objects_sums} /> 
                 <ScrollView ref={scrollViewRef}
@@ -118,21 +120,36 @@ const styles = StyleSheet.create({
         paddingTop: 5,
     },
     header: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#3498db',
-        borderRadius: 20,
-        padding: 10,
-       
+      flexDirection: "row", // Arrange items horizontally
+      justifyContent: "space-between", // Space between items
+      alignItems: "center", // Center items vertically
+      height: 120,
+      marginTop: 10,
+      backgroundColor: "transparent",
+      padding: 10,
+      borderRadius: 20,
     },
     viewTitle: {
-        fontSize: 28,
-        fontWeight: 'bold',
-        color: '#ffffff',
-        textTransform: 'uppercase',
+      fontSize: 28,
+      fontWeight: "bold",
+      color: "#ffffff",
+      textTransform: "uppercase",
     },
+  
+    logoutButton: {
+      backgroundColor: "#ffffff",
+      paddingVertical: 10,
+      paddingHorizontal: 20,
+      borderRadius: 10,
+    },
+  
+    logoutText: {
+      color: "#3498db",
+      fontWeight: "bold",
+    },
+  
     dateContainer: {
-        
+        color:'white',
         marginTop: 5,
         
     },
