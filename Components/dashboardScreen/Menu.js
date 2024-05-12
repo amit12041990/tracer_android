@@ -18,7 +18,7 @@ const Menu = ( { startDate, endDate }) => {
         };
         
         if (item === 'WordCloud') {
-           // navigation.navigate('WordCloud',params);
+            navigation.navigate('WordCloud',params);
            
         } else if (item === 'ProgressChart') {
            // navigation.navigate('ProgressChart',params);

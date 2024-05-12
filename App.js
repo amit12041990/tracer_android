@@ -13,6 +13,7 @@ import LoginScreen from './screens/LoginScreens';
 
 //screens components
 import ScreenTimeMapScreen from './screens/ScreenTimeMapScreen';
+import InterestMapScreen from './screens/InterestMapScreen';
 const Stack = createNativeStackNavigator();
 
 
@@ -23,6 +24,7 @@ const App = () => {
             <Stack.Navigator initialRouteName='Home'>
                 <Stack.Screen name='Home' component={LoginScreen}/>
                 <Stack.Screen name='Dashboard' component={AdminDashboard}/>
+                <Stack.Screen name='WordCloud' component={InterestMapScreen}/>
                 <Stack.Screen name='ScreenChart' component={ScreenTimeMapScreen}/>
             </Stack.Navigator>
          </NavigationContainer>

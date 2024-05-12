@@ -1,18 +1,11 @@
 import React, { useState,useRef,useEffect } from 'react';
 import { View, Text, TouchableOpacity, SafeAreaView, Dimensions, StyleSheet, ScrollView } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRoute } from '@react-navigation/native';
 
-
-
-
 import TagSummary from '../Components/wordCloudChart/TagTable'; // Corrected component name
-import data from '../wcdata';
+
 import SimpleCloud from '../Components/wordCloudChart/SimpleCloud';
-import { Card } from 'react-native-elements';
-
-
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 import { selectWordCloudData } from '../redux/wordCloudSlice';

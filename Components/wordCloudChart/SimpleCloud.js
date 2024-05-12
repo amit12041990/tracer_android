@@ -1,9 +1,9 @@
 ﻿import React, { useState } from 'react';
 import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native';
-import { Card } from 'react-native-elements';
+
 import { TagCloud } from 'react-tagcloud/rn';
 import { Dimensions } from 'react-native';
-const { width } = Dimensions.get('window');
+
 
 const calculatePercentile = (data_objects) => {
   // Calculate the total count
