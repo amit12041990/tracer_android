@@ -28,7 +28,7 @@ const HeaderCell = ({ text }) => (
 );
 
 const DataRow = ({ rowData }) => (
-  <View style={{backgroundColor:'#AED6F1'}}>
+  <View style={{backgroundColor:'white'}}>
   <View style={styles.header}>
   <HeaderCell text={rowData['time']} />
 </View>

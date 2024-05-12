@@ -47,13 +47,14 @@ const ProgressMapScreen = () => {
             <SafeAreaView style={styles.container}>
                 <View style={styles.header}>
                     <Text style={styles.viewTitle}>Text Evaluation</Text>
-                    <View style={{ flexDirection: 'row', marginVertical: 4 }}>
-                    <View style={{ marginTop:3}}>
+                  
+                    
+                   
+                </View>
+                <View style={{ marginTop:3}}>
                             <Text style={styles.dateText}>From: {startDate}</Text>
                             <Text style={styles.dateText}>To: {endDate}</Text>
                         </View>
-                    </View>
-                </View>
                 <View style={styles.main}>
                    
                     <View style={styles.chartContainer}>
@@ -93,16 +94,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     header: {
-        alignItems: 'center',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
-    },
-    viewTitle: {
+        flexDirection: "row", // Arrange items horizontally
+        justifyContent: "space-between", // Space between items
+        alignItems: "center", // Center items vertically
+        height: 60,
+        marginTop: 2,
+        backgroundColor: "transparent",
+        padding: 5,
+       
+      },
+      viewTitle: {
         fontSize: 20,
-        color: '#ffffff',
-        fontWeight: 'bold',
-        marginBottom: 5,
-    },
+        fontWeight: "bold",
+        color: "#ffffff",
+        textTransform: "uppercase",
+      },
     dateText: {
         color: '#ffffff',
         marginRight: 10,

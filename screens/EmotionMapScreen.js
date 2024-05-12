@@ -57,12 +57,12 @@ const EmotionMapScreen = () => {
           {/* Header Section*/}
           <View style={styles.header}>
                     <Text style={styles.viewTitle}>Sentiment</Text>
-                    <View style={{ marginTop:2}}>
+                   
+                </View>
+                <View>
                         <Text style={styles.dateText}>From: {startDate}</Text>
                         <Text style={styles.dateText}>To: {endDate}</Text>
-                    </View>
                 </View>
-
           {/* Menu Section*/}
           <View
             style={{
@@ -117,16 +117,22 @@ const styles = StyleSheet.create({
     height: windowHeight,
   },
   header: {
-    alignItems: 'center',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-},
-viewTitle: {
+    flexDirection: "row", // Arrange items horizontally
+    justifyContent: "space-between", // Space between items
+    alignItems: "center", // Center items vertically
+    height: 60,
+    marginTop: 2,
+    backgroundColor: "transparent",
+    padding: 5,
+   
+  },
+  viewTitle: {
     fontSize: 20,
-    color: '#ffffff',
-    fontWeight: 'bold',
-    marginBottom: 5,
-},
+    fontWeight: "bold",
+    color: "#ffffff",
+    textTransform: "uppercase",
+  },
+
 dateText: {
     color: '#ffffff',
     marginRight: 10,

@@ -12,7 +12,6 @@ import { selectWordCloudData } from '../redux/wordCloudSlice';
 import { useSelector } from "react-redux";
 import { calculateSum } from '../assets/js/wordcloud_helper';
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
 const InterestMapScreen = () => {
   const navigation =useNavigation()
     const scrollViewRef = useRef(null);
@@ -123,19 +122,18 @@ const styles = StyleSheet.create({
       flexDirection: "row", // Arrange items horizontally
       justifyContent: "space-between", // Space between items
       alignItems: "center", // Center items vertically
-      height: 120,
-      marginTop: 10,
+      height: 60,
+      marginTop: 2,
       backgroundColor: "transparent",
-      padding: 10,
-      borderRadius: 20,
+      padding: 5,
+     
     },
     viewTitle: {
-      fontSize: 28,
+      fontSize: 20,
       fontWeight: "bold",
       color: "#ffffff",
       textTransform: "uppercase",
     },
-  
     logoutButton: {
       backgroundColor: "#ffffff",
       paddingVertical: 10,
