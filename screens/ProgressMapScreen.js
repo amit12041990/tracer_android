@@ -4,17 +4,16 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Swiper from 'react-native-swiper';
 import Table from '../Components/progressChart/DataTable';
 import ProgressChartBar from '../Components/progressChart/ProgressChart';
-import ProgressIndicator from '../Components/progressChart/SingleProgressChart';
+import ProgressIndicator from '../Components/progressChart/ProgressIndicator';
 import { useSelector } from 'react-redux';
 import { selectWordCloudData } from '../redux/wordCloudSlice';
-import Tooltip_Table from '../Components/Tooltip';
 
-const windowWidth = Dimensions.get('window').width;
 import { useRoute } from '@react-navigation/native';
-
+import { VictoryBar, VictoryChart, VictoryTheme,VictoryPie } from "victory-native";
 const ProgressMapScreen = () => {
+  
     const reduxStoreData = useSelector(selectWordCloudData);
-   // const [{ grammarChart, screenChart, tonaliChart, wordcloudChart }] = reduxStoreData;
+
     const {grammarChart} = reduxStoreData[0]
     const { params } = useRoute();
     const { startDate, endDate } = params;
@@ -56,7 +55,7 @@ const ProgressMapScreen = () => {
                     </View>
                 </View>
                 <View style={styles.main}>
-                    {/* Progress Chart Section */}
+                   
                     <View style={styles.chartContainer}>
                         <Swiper loop={false} showsPagination={true}>
                             <View style={styles.slide}>
@@ -67,7 +66,7 @@ const ProgressMapScreen = () => {
                             </View>
                         </Swiper>
                     </View>
-                    {/* Table Section */}
+        
                     <View style={styles.tableContainer}>
                         <ScrollView style={{ flex: 1 }}>
                             <Table tabledata={grammarChart} />
@@ -77,6 +76,9 @@ const ProgressMapScreen = () => {
             </SafeAreaView>
         </LinearGradient>
     );
+   
+  
+
 };
 
 const styles = StyleSheet.create({

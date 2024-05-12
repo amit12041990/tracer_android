@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet,Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import CircularProgress from 'react-native-circular-progress-indicator';
-
+import { calculateAverages } from '../../assets/js/progress_chart_helper';
 const ProgressIndicator = (prop) => {
     const data = prop.grammerCommentData
     const averages = calculateAverages(data)
@@ -39,36 +39,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 });
-function calculateAverages(dataArray) {
-    // Initialize variables to store the sum of values
-    console.log(dataArray)
-    let totalGrammarMistakeCount = 0;
-    let totalSpellMistakeCount = 0;
-    let totalImpression = 0;
-    let totalFluent = 0;
 
-    // Iterate over each object in the array and sum up the required values
-    dataArray.forEach(item => {
-        totalGrammarMistakeCount += item.grammar_mistake_count;
-        totalSpellMistakeCount += item.spell_mistake_count;
-        totalImpression += item.impression;
-        totalFluent += item.fluent;
-    });
-
-    // Calculate the average
-    const totalCount = dataArray.length;
-    const averageGrammarMistakeCount = totalGrammarMistakeCount / totalCount;
-    const averageSpellMistakeCount = totalSpellMistakeCount / totalCount;
-    const averageImpression = totalImpression / totalCount;
-    const averageFluent = totalFluent / totalCount;
-
-    // Return an object containing the averages
-    return {
-        averageGrammarMistakeCount,
-        averageSpellMistakeCount,
-        averageImpression,
-        averageFluent
-    };
-}
 
 export default ProgressIndicator;

@@ -10,6 +10,7 @@ import store from './redux/store'; // Import your Redux store configuration
 import Dashbords from './screens/Dashbords';
 import AdminDashboard from './screens/AdminDashboard';
 import LoginScreen from './screens/LoginScreens';
+import ProgressMapScreen from './screens/ProgressMapScreen';
 
 //screens components
 import ScreenTimeMapScreen from './screens/ScreenTimeMapScreen';
@@ -26,6 +27,7 @@ const App = () => {
                 <Stack.Screen name='Dashboard' component={AdminDashboard}/>
                 <Stack.Screen name='WordCloud' component={InterestMapScreen}/>
                 <Stack.Screen name='ScreenChart' component={ScreenTimeMapScreen}/>
+                <Stack.Screen name='ProgressChart' component={ProgressMapScreen}/>
             </Stack.Navigator>
          </NavigationContainer>
         </Provider>

@@ -1,11 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View,Text } from 'react-native';
 import { VictoryPie } from 'victory-native';
 
 const SemiDonutChart = (props) => {
-  console.log(props.data)
+  
   return (
     <View style={{ alignItems: 'center',height:250 }}>
+   
+
+    
+  
       <VictoryPie
         data={[
           { x: 'Spell ', y: props.data[0] },
@@ -42,7 +46,7 @@ const SemiDonutChart = (props) => {
             fontSize: 16,
           },
         }}
-      />
+      /> 
     </View>
   );
 };
