@@ -11,7 +11,7 @@ import Dashbords from './screens/Dashbords';
 import AdminDashboard from './screens/AdminDashboard';
 import LoginScreen from './screens/LoginScreens';
 import ProgressMapScreen from './screens/ProgressMapScreen';
-
+import EmotionMapScreen from './screens/EmotionMapScreen';
 //screens components
 import ScreenTimeMapScreen from './screens/ScreenTimeMapScreen';
 import InterestMapScreen from './screens/InterestMapScreen';
@@ -28,6 +28,7 @@ const App = () => {
                 <Stack.Screen name='WordCloud' component={InterestMapScreen}/>
                 <Stack.Screen name='ScreenChart' component={ScreenTimeMapScreen}/>
                 <Stack.Screen name='ProgressChart' component={ProgressMapScreen}/>
+                <Stack.Screen name='EmotionChart' component={EmotionMapScreen}/>
             </Stack.Navigator>
          </NavigationContainer>
         </Provider>

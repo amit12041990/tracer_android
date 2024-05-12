@@ -23,7 +23,7 @@ const Menu = ( { startDate, endDate }) => {
         } else if (item === 'ProgressChart') {
             navigation.navigate('ProgressChart',params);
         } else if (item === 'EmotionScreen') {
-           // navigation.navigate('EmotionChart',params);
+           navigation.navigate('EmotionChart',params);
         } else if (item === 'ScreenChart') {
             navigation.navigate('ScreenChart',params);
         }

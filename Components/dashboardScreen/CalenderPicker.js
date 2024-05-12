@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 import CalendarPicker from "react-native-calendar-picker";
 
 const CalendarComponent = ({ onDateChange, isVisible }) => {
@@ -7,6 +8,7 @@ const CalendarComponent = ({ onDateChange, isVisible }) => {
     const maxDate = new Date()
 
     return isVisible ? (
+        <View>
         <CalendarPicker
             startFromMonday={true}
             allowRangeSelection={true}
@@ -17,6 +19,7 @@ const CalendarComponent = ({ onDateChange, isVisible }) => {
             selectedDayTextColor="#FFFFFF"
             onDateChange={onDateChange}
         />
+        </View>
     ) : null;
 };
 
