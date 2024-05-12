@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { MaterialIcons } from '@expo/vector-icons'; // Import Material Icons
+import { MaterialIcons } from '@expo/vector-icons';
 
 const Menu = ( { startDate, endDate }) => {
     
@@ -18,17 +18,17 @@ const Menu = ( { startDate, endDate }) => {
         };
         
         if (item === 'WordCloud') {
-            navigation.navigate('WordCloud',params);
+           // navigation.navigate('WordCloud',params);
            
         } else if (item === 'ProgressChart') {
-            navigation.navigate('ProgressChart',params);
+           // navigation.navigate('ProgressChart',params);
         } else if (item === 'EmotionScreen') {
-            navigation.navigate('EmotionChart',params);
+           // navigation.navigate('EmotionChart',params);
         } else if (item === 'ScreenChart') {
-            navigation.navigate('ScreenChart',params);
+           // navigation.navigate('ScreenChart',params);
         }
         else if(item==='SearchQueryChart'){
-            navigation.navigate('SearchQueryChart',params)
+           // navigation.navigate('SearchQueryChart',params)
         }
         else {
             return;
@@ -52,6 +52,7 @@ const Menu = ( { startDate, endDate }) => {
 
     return (
         <View style={styles.container}>
+
             <TouchableWithoutFeedback onPress={() => handlePress('WordCloud')} onPressIn={() => handleItemPressIn('WordCloud')} onPressOut={handleItemPressOut}>
                 <View style={styles.menuItem}>
                     <MaterialIcons name="cloud" size={24} color={getItemColor('WordCloud')} />
@@ -85,7 +86,7 @@ const Menu = ( { startDate, endDate }) => {
                     <MaterialIcons name="schedule" size={24} color={getItemColor('ScreenChart')} />
                     <Text style={[styles.menuText, { color: getItemColor('ScreenChart') }]}>search query</Text>
                 </View>
-            </TouchableWithoutFeedback>
+            </TouchableWithoutFeedback> 
         </View>
     );
 };

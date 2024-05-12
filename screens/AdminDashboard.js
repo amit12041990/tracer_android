@@ -1,9 +1,4 @@
-const Stack = createNativeStackNavigator();
-import { useNavigation, useIsFocused } from "@react-navigation/native";
 import React, { useState, useEffect } from "react";
-
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { LinearGradient } from "expo-linear-gradient";
 import {
   View,
   Text,
@@ -16,24 +11,23 @@ import {
   ImageBackground,
   Image,
 } from "react-native";
+import { useNavigation, useIsFocused } from "@react-navigation/native";
+import { LinearGradient } from "expo-linear-gradient";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-const windowWidth = Dimensions.get("window").width;
-const windowHeight = Dimensions.get("window").height;
+import DropDownPicker from "react-native-dropdown-picker";
+import { useDispatch, useSelector } from "react-redux";
 
+//file import
 import CalendarComponent from "../Components/dashboardScreen/CalenderPicker";
 import Menu from "../Components/dashboardScreen/Menu";
 
-import DropDownPicker from "react-native-dropdown-picker";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
 import { fetchUserData } from "../redux/childSlice";
 import { setLoading, setError } from "../redux/childSlice";
-import { fetchData } from "../redux/childRawData";
 import { setData } from "../redux/wordCloudSlice";
-import {
-  fetchDataByArgsAction,
-  setData as setRawData,
-} from "../redux/RawDataSearch";
+import {fetchDataByArgsAction,setData as setRawData,} from "../redux/RawDataSearch";
+
+const windowWidth = Dimensions.get("window").width;
+const windowHeight = Dimensions.get("window").height;
 
 const AdminDashboard = () => {
   const navigation = useNavigation();

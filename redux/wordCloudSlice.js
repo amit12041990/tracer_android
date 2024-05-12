@@ -51,7 +51,7 @@ const wordCloudSlice = createSlice({
 
 // helper function
 function allComments(data) {
-    console.log(data)
+  
     if (!data || !Array.isArray(data) || data.length < 6 || !Array.isArray(data[5])) {
         console.error("Invalid data format or missing data[5].");
         return null; // or return []
