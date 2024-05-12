@@ -25,7 +25,7 @@ const Menu = ( { startDate, endDate }) => {
         } else if (item === 'EmotionScreen') {
            // navigation.navigate('EmotionChart',params);
         } else if (item === 'ScreenChart') {
-           // navigation.navigate('ScreenChart',params);
+            navigation.navigate('ScreenChart',params);
         }
         else if(item==='SearchQueryChart'){
            // navigation.navigate('SearchQueryChart',params)

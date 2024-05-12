@@ -1,18 +1,18 @@
 import React from 'react';
 import { View, Text, SafeAreaView, StyleSheet, Dimensions, ScrollView } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
+ import { LinearGradient } from 'expo-linear-gradient';
 
 import ScreenTimeTable from '../Components/screenChart/dataTable';
 import ScreenChartComponent from '../Components/screenChart/ScreenChart';
 import { useSelector } from 'react-redux';
 import { selectWordCloudData } from '../redux/wordCloudSlice';
-import { useRoute } from '@react-navigation/native';
+import { useRoute } from '@react-navigation/native'; 
 
-const windowWidth = Dimensions.get('window').width;
+
 
 const ScreenTimeMapScreen = () => {
-    // Mock data for testing
-    const reduxStoreData = useSelector(selectWordCloudData);
+
+   const reduxStoreData = useSelector(selectWordCloudData);
    
     const screenChart_data = reduxStoreData[0].screenChart
     const screenChartData = mergeAndSerialise(screenChart_data);
@@ -52,11 +52,11 @@ const ScreenTimeMapScreen = () => {
                         </View>
                 </View>
                 <View style={styles.main}>
-                    {/* Progress Chart Section */}
+                   
                     <View style={styles.chartContainer}>
                         <ScreenChartComponent data={screenChartData} />
                     </View>
-                    {/* Table Section */}
+          
                     <View style={styles.tableContainer}>
                         <ScrollView style={{ flex: 1 }}>
                             <ScreenTimeTable data={screenChart_data} />
@@ -66,6 +66,7 @@ const ScreenTimeMapScreen = () => {
             </SafeAreaView>
         </LinearGradient>
     );
+
 };
 
 // Helper function

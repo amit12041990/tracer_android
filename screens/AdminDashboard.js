@@ -2,14 +2,11 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
-  Pressable,
   TouchableOpacity,
   SafeAreaView,
   Dimensions,
   StyleSheet,
-  ScrollView,
-  ImageBackground,
-  Image,
+  
 } from "react-native";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
 import { LinearGradient } from "expo-linear-gradient";

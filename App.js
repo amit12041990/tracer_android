@@ -10,6 +10,9 @@ import store from './redux/store'; // Import your Redux store configuration
 import Dashbords from './screens/Dashbords';
 import AdminDashboard from './screens/AdminDashboard';
 import LoginScreen from './screens/LoginScreens';
+
+//screens components
+import ScreenTimeMapScreen from './screens/ScreenTimeMapScreen';
 const Stack = createNativeStackNavigator();
 
 
@@ -20,6 +23,7 @@ const App = () => {
             <Stack.Navigator initialRouteName='Home'>
                 <Stack.Screen name='Home' component={LoginScreen}/>
                 <Stack.Screen name='Dashboard' component={AdminDashboard}/>
+                <Stack.Screen name='ScreenChart' component={ScreenTimeMapScreen}/>
             </Stack.Navigator>
          </NavigationContainer>
         </Provider>
