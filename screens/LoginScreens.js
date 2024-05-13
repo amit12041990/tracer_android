@@ -11,6 +11,7 @@ import { API_URLS } from './api';
 
 
 const LoginScreen = () => {
+    const [err,setErr] =useState(null)
     const navigation = useNavigation();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -34,7 +35,7 @@ const LoginScreen = () => {
                 password,
                 role,
             });
-            console.log(response.data)
+    
             if (response.data.userID !== undefined) {
                 await AsyncStorage.setItem('isLoggedIn', 'true');
                 await AsyncStorage.setItem('userID', response.data.userID);
@@ -43,7 +44,15 @@ const LoginScreen = () => {
                 
                
             }
+            else if(response.data.user === 'not found') {
+                setErr('user not found')
+            }
+            else{
+                setErr(JSON.stringify(response.data))
+               
+            }
         } catch (error) {
+            setErr('Login failed:', error.response.data.message)
             console.error('Login failed:', error.response.data.message);
         }
     };
@@ -82,7 +91,14 @@ const LoginScreen = () => {
                 <Text>
                 Use Childname and parent password to child login
                 </Text>
+                {
+                    err && (
+                        <Text style={{color:'red'}}>{err}</Text>
+                    )
+                }
+                
             </View>
+            
         </View>
     );
 };

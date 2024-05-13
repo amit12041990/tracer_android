@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Dimensions,
   StyleSheet,
+  Button
   
 } from "react-native";
 import { useNavigation, useIsFocused } from "@react-navigation/native";
@@ -15,7 +16,7 @@ import DropDownPicker from "react-native-dropdown-picker";
 import { useDispatch, useSelector } from "react-redux";
 
 //file import
-import CalendarComponent from "../Components/dashboardScreen/CalenderPicker";
+/* import CalendarComponent from "../Components/dashboardScreen/CalenderPicker";  */
 import Menu from "../Components/dashboardScreen/Menu";
 
 import { fetchUserData } from "../redux/childSlice";
@@ -52,6 +53,44 @@ const AdminDashboard = () => {
   const [isCalendarVisible, setIsCalendarVisible] = useState(false);
   const startDate = selectedStartDate ? selectedStartDate.toString() : null;
   const endDate = selectedEndDate ? selectedEndDate.toString() : null;
+
+  const handleWeekButtonClick = () => {
+    const currentDate = new Date();
+    const nextWeekDate = new Date();
+    nextWeekDate.setDate(currentDate.getDate() + 7);
+    setSelectedStartDate(currentDate)
+    setSelectedEndDate(nextWeekDate)
+  /*   setSelectedDates({
+      selectedStartDate: currentDate,
+      selectedEndDate: nextWeekDate,
+    }); */
+  };
+  const handlePreviousWeekButtonClick = () => {
+    const currentDate = new Date();
+    const previousWeekDate = new Date();
+    previousWeekDate.setDate(currentDate.getDate() - 7);
+    
+    setSelectedStartDate(previousWeekDate);
+    setSelectedEndDate(currentDate);
+  };
+  const handleMonthButtonClick = () => {
+    const currentDate = new Date();
+    const nextMonthDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+    setSelectedStartDate(currentDate)
+    setSelectedEndDate(nextMonthDate)
+   /*  setSelectedDates({
+      selectedStartDate: currentDate,
+      selectedEndDate: nextMonthDate,
+    }); */
+  };
+  const handlePreviousMonthButtonClick = () => {
+    const currentDate = new Date();
+    const thisMonthFirstDate = new Date(currentDate.getFullYear(), currentDate.getMonth() ,1);
+    const thisMonthLastDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
+
+    setSelectedStartDate(thisMonthFirstDate);
+    setSelectedEndDate(thisMonthLastDate);
+  };
 
   // hide Menu if get any error in data fetching
   const [showMenu,setShowMenu]=useState(true)
@@ -202,16 +241,16 @@ const AdminDashboard = () => {
 
             {/* Calender Section*/}
             <View style={styles.calendarContainer}>
-              <TouchableOpacity
+             {/*  <TouchableOpacity
                 onPress={showCalendar}
                 style={styles.selectDateButton}
               >
                 <Text style={styles.selectDateButtonText}>
                   Select Date Range
                 </Text>
-              </TouchableOpacity>
+              </TouchableOpacity> */}
 
-              {isCalendarVisible && (
+             {/*  {isCalendarVisible && (
                 <View style={styles.calendar}>
                   <CalendarComponent
                     onDateChange={handleDateChange}
@@ -219,11 +258,16 @@ const AdminDashboard = () => {
                   />
                 </View>
               )}
-
+*/}
               <View style={styles.dateRange}>
                 <Text style={styles.dateText}>From: {startDate}</Text>
                 <Text style={styles.dateText}>To: {endDate}</Text>
-              </View>
+              </View> 
+              <View style={styles.pickDate}>
+      
+      <Button title="1 Week" onPress={handlePreviousWeekButtonClick} />
+      <Button title="1 Month" onPress={handlePreviousMonthButtonClick} />
+    </View>
             </View>
 
             {/* Menu Section*/}
@@ -247,6 +291,12 @@ const AdminDashboard = () => {
 const styles = StyleSheet.create({
   gradient: {
     flex: 1,
+  },
+  pickDate:{
+    width:200,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 20,
   },
   menu: {
     width: windowWidth - 20,
