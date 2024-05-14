@@ -37,6 +37,7 @@ const LoginScreen = () => {
             });
     
             if (response.data.userID !== undefined) {
+                alert(response.data.userID)
                 await AsyncStorage.setItem('isLoggedIn', 'true');
                 await AsyncStorage.setItem('userID', response.data.userID);
                 await AsyncStorage.setItem('role', response.data.userType); // Store the user's role
