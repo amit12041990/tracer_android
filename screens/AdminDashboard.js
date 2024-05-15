@@ -102,21 +102,12 @@ const AdminDashboard = () => {
         if (isLoggedIn === "true") {
           setIsUserLoggedIn(true);
           try {
-            const isLoggedIn = await AsyncStorage.getItem("isLoggedIn");
-
-            if (isLoggedIn === "true") {
-              try {
-                dispatch(setLoading(true));
-                await dispatch(fetchUserData());
-                dispatch(setLoading(false));
-
-              } catch (error) {
-                dispatch(setError(error.message));
-                dispatch(setLoading(false));
-              }
-            }
+            dispatch(setLoading(true));
+            await dispatch(fetchUserData());
+            dispatch(setLoading(false));
           } catch (error) {
-            console.error("Error Fetching status:", error.message);
+            dispatch(setError(error.message)); // Dispatch error to Redux store
+            dispatch(setLoading(false));
           }
         } else {
           navigation.replace("Home");
@@ -128,6 +119,7 @@ const AdminDashboard = () => {
 
     checkLoginStatus();
   }, []);
+
   useEffect(() => {
     if (userData && userData.data) {
       const childdropDownList = userData.data.map((el) => ({

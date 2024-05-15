@@ -19,13 +19,18 @@ const LoginScreen = () => {
     useEffect(() => {
         // Check if the user is already logged in
         const checkLoginStatus = async () => {
-            const isLogin = await AsyncStorage.getItem('isLoggedIn');
-            if (isLogin === 'true') {
-                const userRole = await AsyncStorage.getItem('role');
-                navigation.navigate(userRole === 'admin' ? 'Dashboard' : 'Child');
+            try {
+                const isLogin = await AsyncStorage.getItem('isLoggedIn');
+                if (isLogin === 'true') {
+                    const userRole = await AsyncStorage.getItem('role');
+                    navigation.navigate(userRole === 'admin' ? 'Dashboard' : 'Child');
+                }
+            } catch (error) {
+                console.error('Error while checking login status:', error);
+                // Handle the error here, e.g., display an error message to the user
             }
         };
-
+    
         checkLoginStatus();
     }, [navigation]);
     const handleLogin = async() => {

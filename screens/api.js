@@ -1,7 +1,7 @@
 // api.js
 const local = 'http://10.0.2.2:4000'
 const live = 'http://13.201.50.123'
-const API_BASE_URL = local ; // Base URL for your API
+const API_BASE_URL = live ; // Base URL for your API
 
 const API_ROUTES = {
   userLogin: '/mobile_login',

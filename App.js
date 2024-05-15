@@ -31,6 +31,7 @@ const App = () => {
          <NavigationContainer>
             <Stack.Navigator initialRouteName='Home' >
                 <Stack.Screen name='Home' component={LoginScreen}/>
+             {/*    <Stack.Screen name='Dashboard' component={Dashbords}/> */}
                 <Stack.Screen name='Dashboard' component={AdminDashboard} options={{headerShown:false}}/>
                 <Stack.Screen name='WordCloud' component={InterestMapScreen}/>
                 <Stack.Screen name='ScreenChart' component={ScreenTimeMapScreen}/>
