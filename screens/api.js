@@ -5,7 +5,7 @@ const API_BASE_URL = live ; // Base URL for your API
 
 const API_ROUTES = {
   userLogin: '/mobile_login',
-  userComment:'/Commentuser',
+  userComment:'/userComment',
   userQuery:'/userQuery',
   userInterest:'/userInterest',
   userDashboard:'/appDashboard',
